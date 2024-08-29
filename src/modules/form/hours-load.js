@@ -6,6 +6,9 @@ import { hoursClick } from "./hours-click";
 const hours = document.getElementById("hours")
 
 export function hoursLoad({ date }) {
+  //Limpa lista de horários
+  hours.innerHTML = ""
+
   const opening = openingHours.map((hour) => {
     //Recuperar somente a hora
     const [scheduleHour] = hour.split(":")
@@ -20,7 +23,7 @@ export function hoursLoad({ date }) {
   })
 
   //Renderizando os horários
-  opening.forEach(({hour, available}) => {
+  opening.forEach(({ hour, available }) => {
     const li = document.createElement("li")
 
     li.classList.add("hour")
@@ -29,11 +32,11 @@ export function hoursLoad({ date }) {
     li.textContent = hour
 
     //verificando o período e adicionando a li header na lista
-    if(hour === "9:00") {
+    if (hour === "9:00") {
       hourHeaderAdd("Manhã")
-    } else if(hour === "13:00") {
+    } else if (hour === "13:00") {
       hourHeaderAdd("Tarde")
-    } else if(hour === "18:00") {
+    } else if (hour === "18:00") {
       hourHeaderAdd("Noite")
     }
 
@@ -45,7 +48,7 @@ export function hoursLoad({ date }) {
 }
 
 //Função para criar e adicionar um li de cabeçalho
-function hourHeaderAdd(title){
+function hourHeaderAdd(title) {
   const header = document.createElement("li")
 
   header.classList.add("hour-period")
