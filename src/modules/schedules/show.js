@@ -46,6 +46,7 @@ export function schedulesShow({ dailySchedules }) {
       }
     })
   } catch (error) {
-
+    console.log(error)
+    alert("Não foi possível prosseguir, por favor tente mais tarde!")
   }
 }
